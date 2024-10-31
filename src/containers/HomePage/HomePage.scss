@@ -1,0 +1,224 @@
+//reset slick slider css
+
+.slick-prev {
+    left            : -10px !important;
+    z-index         : 1000 !important;
+    height          : 48px !important;
+    width           : 44px !important;
+    background-color: #fff !important;
+    border          : 2px solid #d7d7d7 !important;
+
+    &:hover {
+        background: #f0eeee !important;
+    }
+
+}
+
+.slick-prev::before,
+.slick-next::before {
+    font-family  : FontAwesome !important;
+    //content    : "<" !important;
+    color        : gray !important;
+}
+
+.slick-next {
+    right           : -10px !important;
+    background-color: #fff !important;
+    border          : 2px solid #d7d7d7 !important;
+    height          : 48px !important;
+    width           : 44px !important;
+
+    &:hover {
+        background: #f0eeee !important;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+.between-distance-doctor {
+    // background: linear-gradient(180deg, #ebf2ff, #edfafb);
+    // height    : 68.15px;
+    margin-bottom: 40px;
+}
+
+//--------------------------------------------------------------------------------------------------------
+.section-share {
+    &.section-specialty {
+        //background-color: #ebf2ff;
+    }
+
+    &.section-medical-facility {
+        //background-color: #ebf2ff;
+    }
+
+    &.section-outstanding-doctor {
+        background: url('../../assets/imgOutstandingDoctor/background.png');
+        height    : 500px;
+        width     : 100%;
+        inset     : 0px;
+        object-fit: cover;
+
+        .section-customize {
+            padding: 5px;
+
+            .outer-bg {
+                display        : flex;
+                justify-content: center;
+                margin-bottom  : 10px;
+            }
+        }
+
+    }
+
+    .section-body {
+        .section-customize {
+            //height : 230px;
+            padding: 0 10px;
+
+            .section-customize-border {
+                border       : 1px solid #d1cece;
+                border-radius: 10px;
+                padding      : 20px;
+
+                .img-section {
+                    // height             : 100%;
+                    // width              : 100%;
+                    width              : 100%;
+                    height             : 180px;
+                    background-position: center center;
+                    background-repeat  : no-repeat;
+                    background-size    : cover;
+                    background-color   : #eee;
+                    border-radius      : 10px;
+
+                    &.img-specialty {
+                        background-image: url('../../assets/imgSpecialty/co-xuong-khop.png');
+                    }
+
+                    &.img-medical-facility {
+                        background-image: url('../../assets/imgMedicalFacility/logobenhvien108.jpg');
+                    }
+
+                    &.img-oustanding-doctor {
+                        height          : 222px;
+                        width           : 222px;
+                        border-radius   : 50%;
+                        background-image: url('../../assets/imgOutstandingDoctor/doctor1.jpg');
+                    }
+
+                    &.img-handbook {
+                        background-image: url('../../assets/imgHandbook/handbook1.webp');
+                    }
+                }
+            }
+
+            .title-section {
+                padding-top: 15px;
+                text-align : center;
+                font-size  : 17px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.section-share {
+
+    .section-container {
+        margin        : 0 100px;
+        display       : flex;
+        flex-direction: column;
+
+        .section-header {
+            height       : 60px;
+            padding-top  : 30px;
+            margin-bottom: 30px;
+
+            .title-section {
+                font-size  : 22px;
+                font-weight: 600;
+            }
+
+            .btn-section {
+                float           : right;
+                padding         : 10px 15px;
+                border          : none;
+                outline         : none;
+                display         : block;
+                cursor          : pointer;
+                border-radius   : 10px;
+                font-size       : 17px;
+                background-color: #6ad8fd;
+                color           : white;
+                //text-transform: uppercase;
+
+
+                &:hover {
+                    border          : 1px solid #49bce2;
+                    background-color: #daf3f6;
+                    color           : #34929e;
+                }
+            }
+        }
+
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+//FOOTER
+.home-footer {
+    margin-top        : 20px;
+    padding-top       : 15px;
+    //background-color: #64b9e5;
+    height            : 100%;
+
+    .footer-content {
+        display: flex;
+
+
+        .content-info1 {
+            margin-left: 130px;
+            padding    : 0 70px;
+            border     : 1px solid rebeccapurple;
+            height     : 200px;
+
+
+            .header-logo {
+                background     : url('../../assets/logo.png') no-repeat;
+                background-size: 80%;
+                height         : 100%;
+                cursor         : pointer;
+            }
+        }
+
+        .content-info2 {
+            //padding: 0 70px;
+            border: 1px solid rebeccapurple;
+            height: 200px;
+        }
+
+        .content-info3 {
+            margin-right: 100px;
+            padding     : 0 70px;
+            border      : 1px solid rebeccapurple;
+            height      : 200px;
+        }
+
+    }
+
+    .footer-copyright {
+        float           : left;
+        padding-top     : 12px;
+        text-align      : center;
+        background-color: #64b9e5;
+        width           : 100%;
+        color           : white;
+        font-size       : 15px;
+
+        a {
+            text-decoration: unset;
+            color          : white;
+        }
+    }
+}

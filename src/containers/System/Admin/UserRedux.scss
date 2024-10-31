@@ -1,0 +1,18 @@
+.preview-img-container {
+    .lable-upload {
+        padding         : 5px;
+        border-radius   : 3px;
+        background-color: #ddd;
+        cursor          : pointer;
+    }
+
+    .preview-image {
+        height         : 50px;
+        width          : 100%;
+        border         : 1px solid rgb(212, 208, 208);
+        border-radius  : 3px;
+        background     : center center no-repeat;
+        background-size: contain;
+        cursor         : pointer;
+    }
+}

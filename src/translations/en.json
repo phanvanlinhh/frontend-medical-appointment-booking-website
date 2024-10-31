@@ -1,0 +1,53 @@
+{
+    "home-header": {
+        "specialty": "Medical specialty",
+        "find-doctor-specialty": "Find a doctor by specialty",
+        "health-facility": "Health facilities",
+        "select-clinic": "Choose hospital clinic",
+        "doctor": "Doctor",
+        "selecy-doctor": "Choose a good doctor",
+        "fee": "Check-up package",
+        "check-health": "General health check",
+        "support": "Support",
+        "welcome": "Welcome"
+    },
+    "banner": {
+        "banner-tag": "MEDICAL PLATFORM",
+        "banner-title": "Connecting People to Health Facilities and Services",
+        "text-child-1": "Specialist Examination",
+        "text-child-2": "Remote Examination",
+        "text-child-3": "General Examination",
+        "text-child-4": "Medical Tests",
+        "text-child-5": "Mental Health",
+        "text-child-6": "Dental Examination"
+    },
+    "menu": {
+        "admin": {
+            "manage-user": "Users System",
+            "manage-doctor": "Manage Doctors",
+            "manage-admin": "Manage Admin",
+            "crud": "CRUD Users",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Clinics",
+            "manage-clinic": "Manage Clinics",
+            "specialty": "Specialties",
+            "manage-specialty": "Manage Specialties",
+            "handbook": "Handbook",
+            "manage-handbook": "Manage Handbooks"
+        }
+    },
+    "manage-user": {
+        "add": "Add new user",
+        "email": "Email",
+        "password": "Password",
+        "first-name": "First name",
+        "last-name": "Last name",
+        "phone-number": "Phone number",
+        "address": "Address",
+        "gender": "Gender",
+        "position": "Position",
+        "role": "Role",
+        "image": "Avatar",
+        "save": "Save"
+    }
+}

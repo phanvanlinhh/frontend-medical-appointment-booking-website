@@ -1,0 +1,53 @@
+{
+    "home-header": {
+        "specialty": "Chuyên khoa",
+        "find-doctor-specialty": "Tìm bác sĩ theo chuyên khoa",
+        "health-facility": "Cơ sở y tế",
+        "select-clinic": "Chọn bệnh viện phòng khám",
+        "doctor": "Bác sĩ",
+        "selecy-doctor": "Chọn bác sĩ giỏi",
+        "fee": "Gói khám",
+        "check-health": "Khám sức khoẻ tổng quát",
+        "support": "Hỗ trợ",
+        "welcome": "Xin chào"
+    },
+    "banner": {
+        "banner-tag": "NỀN TẢNG Y TẾ",
+        "banner-title": "Kết nối người dân với Cơ sở - Dịch vụ Y tế",
+        "text-child-1": "Khám chuyên khoa",
+        "text-child-2": "Khám từ xa",
+        "text-child-3": "Khám tổng quát",
+        "text-child-4": "Xét nghiệm y học",
+        "text-child-5": "Sức khoẻ tinh thần",
+        "text-child-6": "Khám nha khoa"
+    },
+    "menu": {
+        "admin": {
+            "manage-user": "Người dùng",
+            "manage-doctor": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý admin",
+            "crud": "CRUD người dùng",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lý phòng khám",
+            "specialty": "Chuyên khoa",
+            "manage-specialty": "Quản lý chuyên khoa",
+            "handbook": "Cẩm nang",
+            "manage-handbook": "Quản lý cẩm nang"
+        }
+    },
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "first-name": "Tên",
+        "last-name": "Họ",
+        "phone-number": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "position": "Chức danh",
+        "role": "Vai trò",
+        "image": "Ảnh đại diện",
+        "save": "Lưu"
+    }
+}
