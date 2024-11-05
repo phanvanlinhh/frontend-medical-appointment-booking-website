@@ -11,7 +11,7 @@ class ModaEditlUser extends Component {
         this.state = {
             id: '',
             email: '',
-            password: '',
+            //password: '',
             firstName: '',
             lastName: '',
             address: ''
@@ -23,7 +23,7 @@ class ModaEditlUser extends Component {
             this.setState({
                 id: user.id,
                 email: user.email,
-                password: 'password',
+                //password: '123456',
                 firstName: user.firstName,
                 lastName: user.lastName,
                 address: user.address
@@ -44,7 +44,7 @@ class ModaEditlUser extends Component {
     }
     checkValideInput = () => {
         let isValid = true
-        let arrInput = ['email', 'password', 'firstName', 'lastName', 'address']
+        let arrInput = ['email', 'firstName', 'lastName', 'address']
         for (let i = 0; i < arrInput.length; i++) {
             if (!this.state[arrInput[i]]) {
                 isValid = false;
