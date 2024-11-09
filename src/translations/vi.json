@@ -50,5 +50,12 @@
         "image": "Ảnh đại diện",
         "save": "Lưu",
         "edit": "Lưu thay đổi"
+    },
+    "homepage": {
+        "specialty": "Chuyên khoa",
+        "medical-facility": "Cơ sở y tế",
+        "outstanding-doctor": "Bác sĩ nổi bật",
+        "handbook": "Cẩm nang",
+        "see-more": "Xem thêm"
     }
 }

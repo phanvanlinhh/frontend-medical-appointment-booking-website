@@ -33,6 +33,10 @@
     }
 }
 
+.slick-disabled {
+    display: none !important;
+}
+
 //--------------------------------------------------------------------------------------------------------
 
 .between-distance-doctor {
@@ -60,6 +64,7 @@
 
         .section-customize {
             padding: 5px;
+            cursor : pointer;
 
             .outer-bg {
                 display        : flex;
@@ -100,10 +105,10 @@
                     }
 
                     &.img-oustanding-doctor {
-                        height          : 222px;
-                        width           : 222px;
-                        border-radius   : 50%;
-                        background-image: url('../../assets/imgOutstandingDoctor/doctor1.jpg');
+                        height            : 222px;
+                        width             : 222px;
+                        border-radius     : 50%;
+                        //background-image: url('../../assets/imgOutstandingDoctor/doctor1.jpg');
                     }
 
                     &.img-handbook {

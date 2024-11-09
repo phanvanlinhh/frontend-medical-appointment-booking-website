@@ -50,5 +50,12 @@
         "image": "Avatar",
         "save": "Save",
         "edit": "Edit"
+    },
+    "homepage": {
+        "specialty": "Specialty",
+        "medical-facility": "Medical facility",
+        "outstanding-doctor": "Outstanding Doctors",
+        "handbook": "Handbook",
+        "see-more": "See more"
     }
 }
