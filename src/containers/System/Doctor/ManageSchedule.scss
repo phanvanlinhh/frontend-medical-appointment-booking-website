@@ -1,0 +1,21 @@
+.manage-schedule-container {
+    .pick-hour-container {
+        padding-top   : 20px;
+        padding-bottom: 20px;
+        display       : flex;
+        gap           : 20px;
+        flex-wrap     : wrap;
+
+        .btn-schedule {
+            border          : 1px solid #ccc;
+            border-radius   : 5px;
+            background-color: #f1eded;
+            padding         : 5px 20px;
+
+            &.active {
+                background-color: rgb(252, 175, 33);
+                color           : white;
+            }
+        }
+    }
+}
