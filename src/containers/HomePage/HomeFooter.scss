@@ -1,0 +1,82 @@
+.footer {
+    background-color   : #cfd5d7;
+    font-family        : Arial, sans-serif;
+    color              : #686565;
+    // margin-top      : 20px;
+    padding-top        : 15px;
+    height             : 100%;
+
+
+    .footer-container {
+        display        : flex;
+        justify-content: space-between;
+        max-width      : 1200px;
+        margin         : auto;
+
+        .company-info,
+        .links,
+        .partners {
+            //flex  : 1;
+            margin: 0 10px;
+
+            h3 {
+                color        : #346d8b;
+                margin-bottom: 10px;
+            }
+
+            li {
+                display: flex;
+            }
+        }
+
+        .company-info {
+            .certificates {
+                img {
+                    margin-right: 10px;
+                    height      : 40px;
+                }
+            }
+        }
+
+        .links {
+            ul {
+                list-style: none;
+                padding   : 0;
+
+                li {
+                    margin: 5px 0;
+                }
+            }
+        }
+
+        .partners {
+            ul {
+                list-style: none;
+                padding   : 0;
+
+                li {
+                    margin: 5px 0;
+
+                    strong {
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-copyright {
+        float           : left;
+        padding-top     : 12px;
+        text-align      : center;
+        background-color: #64b9e5;
+        width           : 100%;
+        color           : white;
+        font-size       : 15px;
+
+        a {
+            text-decoration: unset;
+            color          : white;
+        }
+    }
+}

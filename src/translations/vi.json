@@ -102,7 +102,7 @@
     "admin": {
         "manage-doctor": {
             "title": " Quản lý thông tin Bác sĩ",
-            "select-doctor": "Chọn bác sĩ",
+            "select-doctor": "Chọn Bác sĩ",
             "intro-infor": "Thông tin giới thiệu",
             "add": "Tạo thông tin",
             "save": "Lưu thông tin",
@@ -111,7 +111,9 @@
             "province": "Tỉnh thành",
             "nameClinic": "Tên phòng khám",
             "addressClinic": "Địa chỉ phòng khám",
-            "note": "Ghi chú"
+            "note": "Ghi chú",
+            "specialty": "Chọn Chuyên khoa",
+            "clinic": "Chọn Phòng khám"
         }
     }
 }

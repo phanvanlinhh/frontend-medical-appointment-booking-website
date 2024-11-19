@@ -3,11 +3,32 @@ import { connect } from 'react-redux';
 import './MedicalFacility.scss'
 import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
+import { getAllClinic } from '../../../services/userService'
+import { withRouter } from 'react-router'
 
 class MedicalFacility extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            dataClinics: []
+        }
+    }
+    async componentDidMount() {
+        let res = await getAllClinic()
+        if (res && res.errCode === 0) {
+            this.setState({
+                dataClinics: res.data ? res.data : []
+            })
+        }
+    }
+    handleViewDetailClinic = (clinic) => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-clinic/${clinic.id}`)
+        }
+    }
 
     render() {
-
+        let { dataClinics } = this.state
         return (
             <>
                 <div className='section-share section-medical-facility'>
@@ -18,42 +39,24 @@ class MedicalFacility extends Component {
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-medical-facility'></div>
-                                        <div className='title-section'>Trung tâm Khám sức khỏe định kỳ, Bệnh viện Trung ương Quân đội 108</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-medical-facility'></div>
-                                        <div className='title-section'>Trung tâm Khám sức khỏe định kỳ, Bệnh viện Trung ương Quân đội 108</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-medical-facility'></div>
-                                        <div className='title-section'>Trung tâm Khám sức khỏe định kỳ, Bệnh viện Trung ương Quân đội 108</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-medical-facility'></div>
-                                        <div className='title-section'>Trung tâm Khám sức khỏe định kỳ, Bệnh viện Trung ương Quân đội 108</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-medical-facility'></div>
-                                        <div className='title-section'>Trung tâm Khám sức khỏe định kỳ, Bệnh viện Trung ương Quân đội 108</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-medical-facility'></div>
-                                        <div className='title-section'>Trung tâm Khám sức khỏe định kỳ, Bệnh viện Trung ương Quân đội 108</div>
-                                    </div>
-                                </div>
+                                {
+                                    dataClinics && dataClinics.length > 0 &&
+                                    dataClinics.map((item, index) => {
+                                        return (
+                                            <div className='section-customize clinic-child' key={index}
+                                                onClick={() => this.handleViewDetailClinic(item)}
+                                            >
+                                                <div className='section-customize-border section-customize-border-clinic'>
+                                                    <div className='img-section img-medical-facility'
+                                                        style={{ backgroundImage: `url(${item.image})` }}
+                                                    >
+                                                    </div>
+                                                    <div className='title-section clinic-name'>{item.name}</div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </Slider>
                         </div>
                     </div>
@@ -76,4 +79,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MedicalFacility));

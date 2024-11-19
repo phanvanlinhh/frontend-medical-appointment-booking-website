@@ -8,7 +8,7 @@ class Handbook extends Component {
     render() {
         return (
             <>
-                <div className='section-share section-handbook'>
+                <div className='section-share section-handbook my-4'>
                     <div className='section-container'>
                         <div className='section-header'>
                             <span className='title-section'><FormattedMessage id={"homepage.handbook"} /></span>

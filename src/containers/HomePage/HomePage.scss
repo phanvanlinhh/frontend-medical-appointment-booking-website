@@ -85,6 +85,7 @@
                 border-radius: 10px;
                 padding      : 20px;
 
+
                 .img-section {
                     // height             : 100%;
                     // width              : 100%;
@@ -96,24 +97,19 @@
                     background-color   : #eee;
                     border-radius      : 10px;
 
-                    &.img-specialty {
-                        background-image: url('../../assets/imgSpecialty/co-xuong-khop.png');
-                    }
-
-                    &.img-medical-facility {
-                        background-image: url('../../assets/imgMedicalFacility/logobenhvien108.jpg');
-                    }
-
                     &.img-oustanding-doctor {
-                        height            : 222px;
-                        width             : 222px;
-                        border-radius     : 50%;
-                        //background-image: url('../../assets/imgOutstandingDoctor/doctor1.jpg');
+                        height       : 222px;
+                        width        : 222px;
+                        border-radius: 50%;
                     }
 
                     &.img-handbook {
                         background-image: url('../../assets/imgHandbook/handbook1.webp');
                     }
+                }
+
+                &.section-customize-border-clinic {
+                    min-height: 310px;
                 }
             }
 
@@ -170,60 +166,3 @@
 }
 
 //--------------------------------------------------------------------------------------------------------
-
-//FOOTER
-.home-footer {
-    margin-top        : 20px;
-    padding-top       : 15px;
-    //background-color: #64b9e5;
-    height            : 100%;
-
-    .footer-content {
-        display: flex;
-
-
-        .content-info1 {
-            margin-left: 130px;
-            padding    : 0 70px;
-            border     : 1px solid rebeccapurple;
-            height     : 200px;
-
-
-            .header-logo {
-                background     : url('../../assets/logo.png') no-repeat;
-                background-size: 80%;
-                height         : 100%;
-                cursor         : pointer;
-            }
-        }
-
-        .content-info2 {
-            //padding: 0 70px;
-            border: 1px solid rebeccapurple;
-            height: 200px;
-        }
-
-        .content-info3 {
-            margin-right: 100px;
-            padding     : 0 70px;
-            border      : 1px solid rebeccapurple;
-            height      : 200px;
-        }
-
-    }
-
-    .footer-copyright {
-        float           : left;
-        padding-top     : 12px;
-        text-align      : center;
-        background-color: #64b9e5;
-        width           : 100%;
-        color           : white;
-        font-size       : 15px;
-
-        a {
-            text-decoration: unset;
-            color          : white;
-        }
-    }
-}

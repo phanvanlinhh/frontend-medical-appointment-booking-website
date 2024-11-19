@@ -3,10 +3,32 @@ import { connect } from 'react-redux';
 import './Specialty.scss'
 import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
+import { getAllSpecialty } from '../../../services/userService'
+import { withRouter } from 'react-router';
 
 class Specialty extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataSpecialty: []
+        }
+    }
+    async componentDidMount() {
+        let res = await getAllSpecialty();
+        if (res && res.errCode === 0) {
+            this.setState({
+                dataSpecialty: res.data ? res.data : []
+            })
+        }
+    }
+    handleViewDetailSpecialty = (item) => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-specialty/${item.id}`)
+        }
+    }
 
     render() {
+        let { dataSpecialty } = this.state
         return (
             <>
                 <div className='section-share section-specialty'>
@@ -17,43 +39,21 @@ class Specialty extends Component {
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-specialty'></div>
-                                        <div className='title-section'>Cơ xương khớp</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-specialty'></div>
-                                        <div className='title-section'>Cơ xương khớp</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-specialty'></div>
-                                        <div className='title-section'>Cơ xương khớp</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-specialty'></div>
-                                        <div className='title-section'>Cơ xương khớp</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-specialty'></div>
-                                        <div className='title-section'>Cơ xương khớp</div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    {/* <img className='img-section' src={specialtyImg} /> */}
-                                    <div className='section-customize-border'>
-                                        <div className='img-section img-specialty'></div>
-                                        <div className='title-section'>Cơ xương khớp</div>
-                                    </div>
-                                </div>
+                                {dataSpecialty && dataSpecialty.length > 0 &&
+                                    dataSpecialty.map((item, index) => {
+                                        return (
+                                            <div className='section-customize specialty-child' key={index}
+                                                onClick={() => this.handleViewDetailSpecialty(item)}
+                                            >
+                                                <div className='section-customize-border'>
+                                                    <div className='img-section img-specialty'
+                                                        style={{ backgroundImage: `url(${item.image})` }}></div>
+                                                    <div className='title-section  specialty-name'>{item.name}</div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </Slider>
                         </div>
                     </div>
@@ -76,4 +76,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Specialty);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Specialty));
