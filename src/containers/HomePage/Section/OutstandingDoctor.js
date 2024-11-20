@@ -62,7 +62,7 @@ class OutstandingDoctor extends Component {
                                                         <div className='title-section'>
                                                             {language === LANGUAGES.VI ? nameVi : nameEn}
                                                         </div>
-                                                        <div>Nam học, Thận - Tiết niệu</div>
+                                                        {/* <div>specialty</div> */}
                                                     </div>
                                                 </div>
                                             </div>
