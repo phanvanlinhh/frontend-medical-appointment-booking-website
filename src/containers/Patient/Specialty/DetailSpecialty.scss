@@ -13,6 +13,13 @@
             border-radius   : 10px;
             box-shadow      : 0 1px 6px #20212447;
             font-size       : 17px;
+
+            .markdown-container img {
+                max-width: 100%;
+                height   : auto;
+                display  : block;
+                margin   : 0 auto;
+            }
         }
 
         .search-sp-doctor {
@@ -41,7 +48,6 @@
             width       : 50%;
             border-right: 1px solid #ddd;
 
-            // padding     : 10px;
             .profile-doctor-container {
                 .down {
                     padding: 5px;
@@ -67,6 +73,78 @@
                 .doctor-extra-infor-container {
                     padding-left: 0 !important;
                 }
+            }
+        }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 1024px) {
+        .detail-specialty-body {
+            padding: 0 50px;
+        }
+
+        .each-doctor {
+            flex-direction: column; // Chuyển bố cục thành dọc
+            min-height    : unset; // Loại bỏ chiều cao tối thiểu
+
+            .dt-content-left,
+            .dt-content-right {
+                width       : 100%; // Chiếm toàn bộ chiều rộng
+                border-right: none; // Bỏ border
+            }
+
+            .dt-content-left {
+                margin-bottom: 10px; // Tạo khoảng cách giữa các khối
+                border-bottom: 1px solid #ddd; // Thêm border dưới để phân cách
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .detail-specialty-body {
+            padding: 0 20px;
+        }
+
+        .description-specialty {
+            font-size: 15px; // Giảm kích thước chữ
+        }
+
+        .each-doctor {
+            padding: 5px;
+
+            .dt-content-left,
+            .dt-content-right {
+                padding: 5px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .detail-specialty-body {
+            padding: 0 10px;
+        }
+
+        .description-specialty {
+            font-size: 14px;
+            padding  : 5px;
+        }
+
+        .each-doctor {
+            padding: 5px;
+
+            .dt-content-left,
+            .dt-content-right {
+                padding: 5px;
+            }
+
+            .dt-content-left {
+                border-bottom: 1px solid #ddd; // Border dưới khi thành dọc
+            }
+        }
+
+        .search-sp-doctor {
+            select {
+                width: 100%; // Đảm bảo select chiếm toàn bộ chiều rộng
             }
         }
     }

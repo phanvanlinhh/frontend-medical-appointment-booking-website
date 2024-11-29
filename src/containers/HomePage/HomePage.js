@@ -7,26 +7,32 @@ import OutstandingDoctor from './Section/OutstandingDoctor';
 import Handbook from './Section/Handbook';
 import HomeFooter from './HomeFooter';
 import './HomePage.scss'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "react-multi-carousel/lib/styles.css";
 
 class HomePage extends Component {
 
     render() {
-        let settings = {
-            dots: false,
-            infinite: false,
-            speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 1,
+        let responsive = {
+            superLargeDesktop: {
+                breakpoint: { max: 4000, min: 3000 }, items: 5
+            },
+            desktop: {
+                breakpoint: { max: 3000, min: 1024 }, items: 3
+            },
+            tablet: {
+                breakpoint: { max: 1024, min: 550 }, items: 2
+            },
+            mobile: {
+                breakpoint: { max: 500, min: 0 }, items: 1
+            }
         };
         return (
             <div >
                 <HomeHeader isShowBanner={true} />
-                <Specialty settings={settings} />
-                <MedicalFacility settings={settings} />
-                <OutstandingDoctor settings={settings} />
-                <Handbook settings={settings} />
+                <Specialty responsive={responsive} />
+                <MedicalFacility />
+                <OutstandingDoctor responsive={responsive} />
+                <Handbook responsive={responsive} />
                 <HomeFooter />
             </div>
         )

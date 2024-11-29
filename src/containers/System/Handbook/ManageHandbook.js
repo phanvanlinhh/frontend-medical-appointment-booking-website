@@ -2,27 +2,27 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { LANGUAGES } from '../../../utils/constant';
 import { FormattedMessage } from 'react-intl';
-import './ManageClinic.scss'
+import './ManageHandbook.scss'
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite'
 import { CommonUtils } from '../../../utils';
 import { toast } from 'react-toastify';
-import { createClinic, updateClinic } from '../../../services/userService'
-import TableClinic from './TableClinic';
+import { createHandbook, updateHandbook } from '../../../services/userService'
+import TableHandbook from './TableHandbook';
 
 const mdParser = new MarkdownIt();
 
-class ManageClinic extends Component {
+class ManageHandbook extends Component {
     constructor(props) {
         super(props)
         this.state = {
             name: '',
-            address: '',
             imageBase64: '',
             descriptionHTML: '',
             descriptionMarkdown: ''
         }
     }
+
     handleOnChangeInput = (event, id) => {
         let stateCopy = { ...this.state }
         stateCopy[id] = event.target.value
@@ -46,13 +46,12 @@ class ManageClinic extends Component {
             })
         }
     }
-    handleSaveNewClinic = async () => {
-        let res = await createClinic(this.state)
+    handleSaveNewHandbook = async () => {
+        let res = await createHandbook(this.state)
         if (res && res.errCode === 0) {
-            toast.success('Add new clinic succeed!')
+            toast.success('Add new handbook succeed!')
             this.setState({
                 name: '',
-                address: '',
                 imageBase64: '',
                 descriptionHTML: '',
                 descriptionMarkdown: ''
@@ -62,49 +61,46 @@ class ManageClinic extends Component {
             toast.error('Something wrong...')
         }
     }
-    handleEditClinic = (clinic) => {
+    handleEditHandbook = (handbook) => {
         this.setState({
-            id: clinic.id,
-            name: clinic.name,
-            address: clinic.address,
-            imageBase64: clinic.image,
-            descriptionHTML: clinic.descriptionHTML,
-            descriptionMarkdown: clinic.descriptionMarkdown,
+            id: handbook.id,
+            name: handbook.name,
+            imageBase64: handbook.image,
+            descriptionHTML: handbook.descriptionHTML,
+            descriptionMarkdown: handbook.descriptionMarkdown,
         });
     }
-    handleSaveClinic = async () => {
-        let { id, name, address, imageBase64, descriptionHTML, descriptionMarkdown } = this.state;
-        if (!name || !address || !descriptionHTML || !descriptionMarkdown) {
+    handleSaveHandbook = async () => {
+        let { id, name, imageBase64, descriptionHTML, descriptionMarkdown } = this.state;
+        if (!name || !descriptionHTML || !descriptionMarkdown) {
             toast.error('All fields are required except the image!');
             return;
         }
         if (!imageBase64 && !id) {
-            toast.error('Image is required for new clinic!');
+            toast.error('Image is required for new handbook!');
             return;
         }
         let data = {
             id,
             name,
-            address,
             imageBase64,
             descriptionHTML,
             descriptionMarkdown,
         };
-        let res = id ? await updateClinic(data) : await createClinic(data);
+        let res = id ? await updateHandbook(data) : await createHandbook(data);
 
         if (res && res.errCode === 0) {
-            toast.success(id ? 'Update clinic succeed!' : 'Add new clinic succeed!');
+            toast.success(id ? 'Update handbook succeed!' : 'Add new handbook succeed!');
             this.setState({
                 id: null,
                 name: '',
-                address: '',
                 imageBase64: '',
                 descriptionHTML: '',
                 descriptionMarkdown: '',
             });
 
-            if (this.props.fetchClinics) {
-                this.props.fetchClinics();
+            if (this.props.fetchHandbooks) {
+                this.props.fetchHandbooks();
             }
         } else {
             toast.error(res.errMessage || 'Something went wrong...');
@@ -112,22 +108,21 @@ class ManageClinic extends Component {
     }
 
     render() {
-
         return (
-            <div className='manage-specialty-container'>
+            <div className='manage-handbook-container'>
                 <div className='title'>
-                    <FormattedMessage id='admin.manage-clinic.title' />
+                    <FormattedMessage id='admin.manage-handbook.title' />
                 </div>
-                <div className='add-new-specialty row'>
+                <div className='add-new-handbook row'>
                     <div className='col-6 form-group'>
-                        <label><FormattedMessage id='admin.manage-clinic.name-clinic' /></label>
+                        <label><FormattedMessage id='admin.manage-handbook.name-handbook' /></label>
                         <input className='form-control' type='text' value={this.state.name}
                             onChange={(event) => this.handleOnChangeInput(event, 'name')}
                         />
                     </div>
                     <div className='col-6 form-group'>
-                        <label><FormattedMessage id='admin.manage-clinic.image-clinic' /></label>
-                        <input className='form-control-file image' type='file'
+                        <label><FormattedMessage id='admin.manage-handbook.image-handbook' /></label>
+                        <input className='form-control-file' type='file'
                             onChange={(event) => this.handleOnChangeImage(event)}
                         />
                         {this.state.imageBase64 && (
@@ -138,15 +133,9 @@ class ManageClinic extends Component {
                             />
                         )}
                     </div>
-                    <div className='col-6 form-group'>
-                        <label><FormattedMessage id='admin.manage-clinic.address-clinic' /></label>
-                        <input className='form-control' type='text' value={this.state.address}
-                            onChange={(event) => this.handleOnChangeInput(event, 'address')}
-                        />
-                    </div>
                     <div className='col-12'>
                         <MdEditor
-                            style={{ height: '400px' }}
+                            style={{ height: '450px' }}
                             renderHTML={text => mdParser.render(text)}
                             onChange={this.handleEditorChange}
                             value={this.state.descriptionMarkdown}
@@ -155,18 +144,19 @@ class ManageClinic extends Component {
                     <div className='col-12 mt-3'>
                         <button
                             className='btn btn-primary'
-                            onClick={this.handleSaveClinic}
+                            onClick={this.handleSaveHandbook}
                         >
                             {this.state.id ? 'Update' : 'Save'}
                         </button>
                     </div>
                     <div className='col-12 mt-3 mb-3'>
-                        <TableClinic
-                            handleEditClinic={this.handleEditClinic}
-                            fetchClinics={this.fetchClinics}
+                        <TableHandbook
+                            handleEditHandbook={this.handleEditHandbook}
+                            fetchHandbooks={this.fetchHandbooks}
                         />
                     </div>
                 </div>
+
             </div>
         );
     }
@@ -183,4 +173,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageClinic);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageHandbook);

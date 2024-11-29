@@ -1,28 +1,30 @@
-#TableManageUser {
+#TableSpecialty {
     font-family    : Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width          : 100%;
-    table-layout   : fixed;
+    width          : 50%;
+    margin         : 0 auto;
+    overflow-x     : auto;
+    /* Thêm khả năng cuộn ngang */
 }
 
-#TableManageUser td,
-#TableManageUser th {
-    border    : 1px solid #ddd;
-    padding   : 8px;
-    text-align: left;
+#TableSpecialty td,
+#TableSpecialty th {
+    border : 1px solid #ddd;
+    padding: 8px;
 }
 
-#TableManageUser tr:nth-child(even) {
+#TableSpecialty tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-#TableManageUser tr:hover {
+#TableSpecialty tr:hover {
     background-color: #ddd;
 }
 
-#TableManageUser th {
+#TableSpecialty th {
     padding-top     : 12px;
     padding-bottom  : 12px;
+    text-align      : left;
     background-color: #04AA6D;
     color           : white;
 }
@@ -53,7 +55,7 @@
     }
 }
 
-/* Pagination Styles */
+/* Phân trang */
 .pagination {
     display        : flex;
     justify-content: center;
@@ -61,45 +63,41 @@
     flex-wrap      : wrap;
 }
 
-.pagination button {
-    margin          : 0 5px;
+.pagination-btn {
     padding         : 10px;
     background-color: #04AA6D;
     color           : white;
     border          : none;
     cursor          : pointer;
     border-radius   : 5px;
+    margin          : 0 5px;
 }
 
-.pagination button.active {
+.pagination-btn.active {
     background-color: #3e8e41;
 }
 
-.pagination button:disabled {
+.pagination-btn:disabled {
     background-color: #ddd;
     cursor          : not-allowed;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-
-    /* Make the table horizontally scrollable */
-    #TableManageUser {
-        display                   : block;
-        overflow-x                : auto;
-        -webkit-overflow-scrolling: touch;
+    #TableSpecialty {
+        width: 100%;
+        /* Bảng chiếm toàn bộ chiều rộng màn hình nhỏ */
     }
 
-    #TableManageUser td,
-    #TableManageUser th {
+    #TableSpecialty td,
+    #TableSpecialty th {
         font-size: 12px;
         /* Smaller font size */
         padding  : 6px;
         /* Reduce padding */
     }
 
-    /* Pagination adjustments for small screens */
-    .pagination button {
+    .pagination-btn {
         font-size: 12px;
         padding  : 8px;
     }

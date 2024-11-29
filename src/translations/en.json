@@ -8,7 +8,7 @@
         "selecy-doctor": "Choose a good doctor",
         "fee": "Check-up package",
         "check-health": "General health check",
-        "support": "Support",
+        "chatbot": "Chatbot",
         "welcome": "Welcome"
     },
     "banner": {
@@ -27,7 +27,7 @@
             "manage-doctor": "Manage Doctors",
             "manage-admin": "Manage Admin",
             "crud": "CRUD Users",
-            "crud-redux": "CRUD Redux",
+            "crud-redux": "Manage User",
             "clinic": "Clinics",
             "manage-clinic": "Manage Clinics",
             "specialty": "Specialties",
@@ -64,8 +64,8 @@
     },
     "manage-schedule": {
         "title": "Manage doctor's examination plan",
-        "choose-doctor": "Choose doctor",
-        "choose-date": "Choose date",
+        "choose-doctor": "Select doctor",
+        "choose-date": "Select date",
         "btn-save": "Save"
     },
     "patient": {
@@ -115,6 +115,22 @@
             "note": "Note",
             "specialty": "Select Specialty",
             "clinic": "Select Clinic"
+        },
+        "manage-clinic": {
+            "title": "Manage Clinic",
+            "name-clinic": "Clinic name",
+            "address-clinic": "Clinic address",
+            "image-clinic": "Image clinic"
+        },
+        "manage-specialty": {
+            "title": "Manage Specialty",
+            "name-specialty": "Specialty name",
+            "image-specialty": "Image specialty"
+        },
+        "manage-handbook": {
+            "title": "Manage Handbook",
+            "name-handbook": "Handbook name",
+            "image-handbook": "Image handbook"
         }
     }
 }

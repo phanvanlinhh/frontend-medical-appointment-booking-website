@@ -1,12 +1,10 @@
 .doctor-detail-container {
-
     .intro-doctor {
         display    : flex;
         padding-top: 15px;
         margin     : 0 150px;
 
         .content-left {
-            width              : 20%;
             width              : 130px;
             height             : 130px;
             background-size    : contain;
@@ -14,11 +12,10 @@
             background-position: center;
             border-radius      : 50%;
             margin             : 10px 20px 10px 0;
-
         }
 
         .content-right {
-            width         : 80%;
+            width         : calc(100% - 150px);
             display       : flex;
             flex-direction: column;
             padding-left  : 10px;
@@ -59,9 +56,117 @@
         img {
             width: 100%;
         }
+
+        .markdown-container img {
+            max-width: 100%;
+            height   : auto;
+            display  : block;
+            margin   : 0 auto;
+        }
     }
 
     .comment-doctor {
         // padding-top: 20px;
+    }
+
+    // Responsive adjustments
+    @media (max-width: 1024px) {
+        .intro-doctor {
+            margin: 0 50px; // Giảm margin cho tablet
+
+            .content-left {
+                width : 100px;
+                height: 100px; // Thu nhỏ kích thước ảnh
+            }
+
+            .content-right {
+                .up {
+                    font-size: 20px; // Giảm kích thước chữ tiêu đề
+                }
+            }
+        }
+
+        .schedule-doctor {
+            margin: 0 50px; // Giảm margin
+        }
+
+        .detail-infor-doctor {
+            padding: 20px 50px; // Giảm padding
+        }
+    }
+
+    @media (max-width: 768px) {
+        .intro-doctor {
+            flex-direction: column; // Chuyển sang dạng dọc
+            margin        : 0 20px; // Giảm margin hơn nữa
+            align-items   : center; // Căn giữa nội dung
+
+            .content-left {
+                margin: 0 auto 10px; // Căn giữa ảnh
+            }
+
+            .content-right {
+                width       : 100%; // Chiếm toàn bộ chiều rộng
+                padding-left: 0;
+
+                .up {
+                    text-align: center; // Căn giữa tiêu đề
+                }
+
+                .location {
+                    text-align: center; // Căn giữa vị trí
+                }
+            }
+        }
+
+        .schedule-doctor {
+            flex-direction: column; // Chuyển sang dạng dọc
+            margin        : 0 20px; // Thu nhỏ margin
+
+            .content-left,
+            .content-right {
+                width        : 100%; // Chiếm toàn bộ chiều rộng
+                margin-bottom: 10px; // Tạo khoảng cách giữa hai khối
+            }
+        }
+
+        .detail-infor-doctor {
+            padding: 20px; // Giảm padding thêm
+        }
+    }
+
+    @media (max-width: 480px) {
+        .intro-doctor {
+            margin: 0 10px; // Thu gọn margin trên điện thoại
+
+            .content-left {
+                width : 80px; // Thu nhỏ ảnh
+                height: 80px;
+            }
+
+            .content-right {
+                .up {
+                    font-size: 18px; // Giảm kích thước tiêu đề
+                }
+
+                .location {
+                    font-size: 14px; // Giảm kích thước chữ vị trí
+                }
+            }
+        }
+
+        .schedule-doctor {
+            margin: 0 10px; // Rất nhỏ margin trên mobile
+
+            .content-left,
+            .content-right {
+                padding: 5px; // Giảm padding giữa các khối
+            }
+        }
+
+        .detail-infor-doctor {
+            padding  : 10px; // Rất nhỏ padding
+            font-size: 14px; // Giảm kích thước chữ
+        }
     }
 }

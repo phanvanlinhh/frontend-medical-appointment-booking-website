@@ -18,4 +18,47 @@
             }
         }
     }
+
+    // Responsive adjustments
+    @media (max-width: 1024px) {
+        .pick-hour-container {
+            align-items    : center;
+            display        : flex;
+            flex-wrap      : wrap;
+            justify-content: center;
+            gap            : 15px; // Giảm khoảng cách giữa các nút
+            padding        : 15px; // Điều chỉnh padding
+
+            .btn-schedule {
+                min-width: 180px;
+                width    : 150px;
+                padding  : 10px; // Giảm kích thước nút
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .pick-hour-container {
+            align-items    : center;
+            display        : flex;
+            flex-wrap      : wrap;
+            justify-content: center;
+
+            .btn-schedule {
+                width     : 40%; // Kéo dài nút để dễ nhấn
+                text-align: center;
+                padding   : 10px; // Tăng padding để dễ sử dụng
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .pick-hour-container {
+            gap: 10px; // Giảm khoảng cách hơn nữa
+        }
+
+        .btn-schedule {
+            padding: 8px; // Giảm kích thước nút để phù hợp với màn hình nhỏ
+        }
+    }
 }

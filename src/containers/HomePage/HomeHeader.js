@@ -15,6 +15,11 @@ class HomeHeader extends Component {
             this.props.history.push(`/home`)
         }
     }
+    returnToChatbot = () => {
+        if (this.props.history) {
+            this.props.history.push(`/chatbot`)
+        }
+    }
 
     render() {
         let language = this.props.language
@@ -23,7 +28,7 @@ class HomeHeader extends Component {
                 <div className='home-header-container'>
                     <div className='home-header-content'>
                         <div className='left-content'>
-                            <i className="fas fa-bars"></i>
+                            <i className="fas fa-bars" onClick={() => this.returnToHome()}></i>
                             <div className='header-logo' onClick={() => this.returnToHome()}></div>
                         </div>
                         <div className='center-content'>
@@ -62,8 +67,8 @@ class HomeHeader extends Component {
                         </div>
                         <div className='right-content'>
                             <div className='support'>
-                                <i className="fas fa-question-circle"></i>
-                                <FormattedMessage id="home-header.support" />
+                                <i className="fas fa-comment-dots" onClick={() => this.returnToChatbot()}></i>
+                                <FormattedMessage id="home-header.chatbot" />
                             </div>
                             <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}>
                                 <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VI</span>

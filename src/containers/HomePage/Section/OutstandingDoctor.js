@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import Slider from "react-slick";
+import Carousel from 'react-multi-carousel';
 import * as actions from '../../../store/actions'
 import { LANGUAGES } from '../../../utils'
 import { withRouter } from 'react-router';
@@ -40,7 +40,7 @@ class OutstandingDoctor extends Component {
                             <button className='btn-section'><FormattedMessage id={"homepage.see-more"} /></button>
                         </div>
                         <div className='section-body'>
-                            <Slider {...this.props.settings}>
+                            <Carousel responsive={this.props.responsive}>
 
                                 {arrDoctors && arrDoctors.length > 0
                                     && arrDoctors.map((item, index) => {
@@ -52,7 +52,7 @@ class OutstandingDoctor extends Component {
                                         let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`
                                         return (
                                             <div className='section-customize' key={index} onClick={() => this.handleViewDetailDoctor(item)}>
-                                                <div className='section-customize-border'>
+                                                <div className='section-customize-border section-customize-border-doctors'>
                                                     <div className='outer-bg'>
                                                         <div className='img-section img-oustanding-doctor'
                                                             style={{ backgroundImage: `url(${imageBase64})` }}>
@@ -69,7 +69,7 @@ class OutstandingDoctor extends Component {
                                         )
                                     })
                                 }
-                            </Slider>
+                            </Carousel>
                         </div>
                     </div >
                 </div >

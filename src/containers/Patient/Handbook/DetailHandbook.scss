@@ -1,0 +1,79 @@
+.detail-handbook-container {
+
+    .detail-handbook-body {
+        padding       : 0 100px;
+        display       : flex;
+        flex-direction: column;
+
+        .handbook-name {
+            margin-top    : 20px;
+            font-size     : 25px;
+            font-weight   : 600;
+            text-align    : center;
+            color         : rgb(8, 167, 192);
+            text-transform: uppercase;
+        }
+
+        .description-handbook {
+            background-color: white;
+            padding         : 10px;
+            margin          : 15px 0;
+            font-size       : 17px;
+
+            .markdown-container img {
+                max-width: 100%;
+                height   : auto;
+                display  : block;
+                margin   : 0 auto;
+            }
+        }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 1024px) {
+        .detail-handbook-body {
+            padding: 0 50px; // Giảm padding khi ở kích thước tablet
+
+            .handbook-name {
+                font-size: 22px; // Giảm kích thước chữ cho tablet
+            }
+
+            .description-handbook {
+                font-size: 16px; // Giảm font chữ của phần mô tả
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .detail-handbook-body {
+            padding: 0 20px; // Tiếp tục giảm padding cho kích thước mobile lớn
+
+            .handbook-name {
+                font-size : 20px; // Giảm kích thước tiêu đề
+                margin-top: 15px; // Giảm khoảng cách trên
+            }
+
+            .description-handbook {
+                font-size: 15px; // Font nhỏ hơn cho màn hình nhỏ
+                padding  : 8px; // Giảm padding
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .detail-handbook-body {
+            padding: 0 10px; // Padding nhỏ nhất cho màn hình mobile nhỏ
+
+            .handbook-name {
+                font-size : 18px; // Chữ nhỏ hơn cho màn hình nhỏ
+                margin-top: 10px; // Giảm khoảng cách trên
+            }
+
+            .description-handbook {
+                font-size: 14px; // Font chữ nhỏ hơn nữa
+                padding  : 5px; // Giảm padding tối đa
+                margin   : 10px 0; // Giảm khoảng cách giữa các khối
+            }
+        }
+    }
+}

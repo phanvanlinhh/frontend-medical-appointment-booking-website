@@ -1,5 +1,4 @@
 .detail-clinic-container {
-
     .detail-clinic-body {
         padding         : 0 100px;
         background-color: #eee;
@@ -13,6 +12,14 @@
             border-radius   : 10px;
             box-shadow      : 0 1px 6px #20212447;
             font-size       : 17px;
+
+            // Đảm bảo hình ảnh markdown hiển thị responsive
+            .markdown-container img {
+                max-width: 100%;
+                height   : auto;
+                display  : block;
+                margin   : 0 auto;
+            }
         }
 
         .search-sp-doctor {
@@ -23,6 +30,7 @@
                 outline      : none;
                 border-radius: 3px;
                 cursor       : pointer;
+                width        : 100%; // Đảm bảo hiển thị tốt trên màn hình nhỏ
             }
         }
     }
@@ -41,7 +49,6 @@
             width       : 50%;
             border-right: 1px solid #ddd;
 
-            // padding     : 10px;
             .profile-doctor-container {
                 .down {
                     padding: 5px;
@@ -67,6 +74,82 @@
                 .doctor-extra-infor-container {
                     padding-left: 0 !important;
                 }
+            }
+        }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 1024px) {
+        .detail-clinic-body {
+            padding: 0 50px; // Giảm padding để phù hợp với tablet
+        }
+
+        .each-doctor {
+            flex-direction: column; // Chuyển bố cục thành dọc
+            min-height    : unset; // Loại bỏ chiều cao tối thiểu
+
+            .dt-content-left,
+            .dt-content-right {
+                width       : 100%; // Chiếm toàn bộ chiều rộng
+                border-right: none; // Loại bỏ đường kẻ chia cột
+            }
+
+            .dt-content-left {
+                margin-bottom: 10px; // Tạo khoảng cách giữa các khối
+                border-bottom: 1px solid #ddd; // Thêm đường kẻ phân cách dưới
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .detail-clinic-body {
+            padding: 0 20px; // Giảm padding nhỏ hơn cho thiết bị cỡ vừa
+        }
+
+        .description-clinic {
+            font-size: 15px; // Giảm kích thước chữ
+        }
+
+        .each-doctor {
+            padding: 5px; // Giảm khoảng cách padding tổng thể
+
+            .dt-content-left,
+            .dt-content-right {
+                padding: 5px; // Giảm padding trong từng khối
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .detail-clinic-body {
+            padding: 0 10px; // Tối giản padding trên điện thoại
+        }
+
+        .description-clinic {
+            font-size: 14px; // Giảm kích thước chữ để phù hợp với màn hình nhỏ
+            padding  : 5px; // Giảm padding bên trong
+        }
+
+        .each-doctor {
+            flex-direction: column; // Đảm bảo bố cục dạng dọc
+            padding       : 5px;
+
+            .dt-content-left,
+            .dt-content-right {
+                width        : 100%; // Đảm bảo full-width
+                padding      : 5px;
+                border-right : none; // Loại bỏ border ngang
+                border-bottom: 1px solid #ddd; // Thêm đường phân cách dưới
+            }
+
+            .dt-content-left {
+                margin-bottom: 10px; // Tạo khoảng cách giữa hai khối
+            }
+        }
+
+        .search-sp-doctor {
+            select {
+                width: 100%; // Đảm bảo kích thước đầy đủ trên màn hình nhỏ
             }
         }
     }

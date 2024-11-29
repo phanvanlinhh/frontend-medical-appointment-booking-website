@@ -1,52 +1,116 @@
 @import "../../styles/common.scss";
 
 .header-container {
-    z-index         : 99;
-    display         : flex;
-    justify-content : space-between;
-    background-color: $colormain;
-    color           : $common-text-color;
-    height          : 40px;
-    position        : relative;
+    .header-tabs-container {
+        display         : flex;
+        justify-content : space-between;
+        align-items     : center;
+        height          : 50px;
+        background-color: $colormain;
+        padding         : 0 15px;
 
-    .btn-logout {
-        color      : $common-text-color;
-        line-height: 40px;
-        height     : 40px;
-        padding    : 0 10px;
+        // Hamburger icon
+        .hamburger-icon {
+            display : block; // Đảm bảo rằng hamburger chỉ hiển thị trong chế độ mobile
+            cursor  : pointer;
+            width   : 30px; // Đặt chiều rộng hợp lý cho hamburger
+            height  : 30px; // Đặt chiều cao hợp lý cho hamburger
+            position: relative;
+            z-index : 100;
 
-        &:hover {
-            background-color: darken($colormain, 5);
+            i {
+                font-size: 24px;
+                color    : $common-text-color;
+            }
+
+            // Khi nhấn vào, hamburger có thể tăng kích thước nhẹ
+            &.active {
+                width     : 35px;
+                height    : 35px;
+                transition: all 0.3s ease;
+            }
         }
 
-        i {
-            font-size: $base-size + 1px;
+        // Thanh điều hướng chính (navigator) sẽ luôn hiển thị khi màn hình lớn
+        .header-info {
+            display        : flex;
+            align-items    : center;
+            justify-content: flex-end;
+
+            .welcome {
+                margin-right: 15px;
+                font-size   : 14px;
+                color       : #fff;
+            }
+
+            .language-vi,
+            .language-en {
+                margin: 0 5px;
+                cursor: pointer;
+                color : #fff;
+
+                &.active {
+                    font-weight: bold;
+                    color      : rgb(231, 33, 33);
+                }
+            }
+
+            .btn-logout {
+                margin-left: 10px;
+                cursor     : pointer;
+                color      : #fff;
+
+                i {
+                    font-size: 18px;
+                }
+            }
         }
     }
 
-    .languages {
-        .welcome {
-            margin-right: 15px;
+    // Thanh điều hướng (navigator) chỉ hiển thị khi hamburger được nhấn
+    .navigator-wrapper {
+        position        : absolute;
+        top             : 50px;
+        left            : 0;
+        width           : 250px; // Giới hạn chiều rộng của menu
+        background-color: $bg-menu-color;
+        box-shadow      : 0px 2px 5px rgba(0, 0, 0, 0.2);
+        z-index         : 1000;
+        display         : none; // Mặc định ẩn thanh điều hướng
+
+        &.visible {
+            display: block; // Khi có class "visible", hiển thị thanh điều hướng
         }
 
-        .language-en {
-            margin-right: 15px;
-            margin-left : 10px;
-            cursor      : pointer;
+        .navigator-menu {
+            display: block;
+        }
+    }
+}
 
-            &.active {
-                opacity: 1;
-                color  : rgb(231, 33, 33);
+@media (max-width: 768px) {
+    .header-container {
+        .header-tabs-container {
+            .header-info {
+                display    : flex;
+                align-items: center;
+
+                .welcome {
+                    display     : inline-block;
+                    margin-right: 15px;
+                }
+
+                .language-vi,
+                .language-en,
+                .btn-logout {
+                    display: inline-block;
+                }
             }
         }
+    }
 
-        .language-vi {
-            cursor: pointer;
-
-            &.active {
-                opacity: 1;
-                color  : rgb(231, 33, 33);
-            }
-        }
+    // Khi navigator mở, ẩn các phần khác và chỉ hiện hamburger và navigator
+    .navigator-wrapper+.header-tabs-container .header-info {
+        display: none;
     }
 }

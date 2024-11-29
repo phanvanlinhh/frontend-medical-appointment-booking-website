@@ -8,7 +8,7 @@
         "selecy-doctor": "Chọn bác sĩ giỏi",
         "fee": "Gói khám",
         "check-health": "Khám sức khoẻ tổng quát",
-        "support": "Hỗ trợ",
+        "chatbot": "Chatbot",
         "welcome": "Xin chào"
     },
     "banner": {
@@ -27,7 +27,7 @@
             "manage-doctor": "Quản lý bác sĩ",
             "manage-admin": "Quản lý admin",
             "crud": "CRUD người dùng",
-            "crud-redux": "CRUD Redux",
+            "crud-redux": "Quản lý người dùng",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lý phòng khám",
             "specialty": "Chuyên khoa",
@@ -115,6 +115,22 @@
             "note": "Ghi chú",
             "specialty": "Chọn Chuyên khoa",
             "clinic": "Chọn Phòng khám"
+        },
+        "manage-clinic": {
+            "title": "Quản lý phòng khám",
+            "name-clinic": "Tên phòng khám",
+            "address-clinic": "Địa chỉ phòng khám",
+            "image-clinic": "Ảnh phòng khám"
+        },
+        "manage-specialty": {
+            "title": "Quản lý chuyên khoa",
+            "name-specialty": "Tên chuyên khoa",
+            "image-specialty": "Ảnh chuyên khoa"
+        },
+        "manage-handbook": {
+            "title": "Quản lý Cẩm nang",
+            "name-handbook": "Tên Cẩm nang",
+            "image-handbook": "Ảnh Cẩm nang"
         }
     }
 }

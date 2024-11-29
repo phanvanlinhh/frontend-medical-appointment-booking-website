@@ -55,7 +55,7 @@ class DetailClinic extends Component {
                     <div className='description-clinic mt-3'>
                         {
                             dataDetailClinic && !_.isEmpty(dataDetailClinic) &&
-                            <div dangerouslySetInnerHTML={{ __html: dataDetailClinic.descriptionHTML }}>
+                            <div className='markdown-container' dangerouslySetInnerHTML={{ __html: dataDetailClinic.descriptionHTML }}>
 
                             </div>
                         }

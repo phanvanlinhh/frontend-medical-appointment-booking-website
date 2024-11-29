@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Specialty.scss'
 import { FormattedMessage } from 'react-intl';
-import Slider from "react-slick";
+import Carousel from 'react-multi-carousel';
 import { getAllSpecialty } from '../../../services/userService'
 import { withRouter } from 'react-router';
 
@@ -38,14 +38,14 @@ class Specialty extends Component {
                             <button className='btn-section'><FormattedMessage id={"homepage.see-more"} /></button>
                         </div>
                         <div className='section-body'>
-                            <Slider {...this.props.settings}>
+                            <Carousel responsive={this.props.responsive}>
                                 {dataSpecialty && dataSpecialty.length > 0 &&
                                     dataSpecialty.map((item, index) => {
                                         return (
                                             <div className='section-customize specialty-child' key={index}
                                                 onClick={() => this.handleViewDetailSpecialty(item)}
                                             >
-                                                <div className='section-customize-border'>
+                                                <div className='section-customize-border section-customize-border-specialty'>
                                                     <div className='img-section img-specialty'
                                                         style={{ backgroundImage: `url(${item.image})` }}></div>
                                                     <div className='title-section  specialty-name'>{item.name}</div>
@@ -54,7 +54,7 @@ class Specialty extends Component {
                                         )
                                     })
                                 }
-                            </Slider>
+                            </Carousel>
                         </div>
                     </div>
                 </div>

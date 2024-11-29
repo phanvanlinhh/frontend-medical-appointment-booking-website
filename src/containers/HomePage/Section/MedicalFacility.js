@@ -2,9 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './MedicalFacility.scss'
 import { FormattedMessage } from 'react-intl';
-import Slider from "react-slick";
 import { getAllClinic } from '../../../services/userService'
 import { withRouter } from 'react-router'
+import Carousel from 'react-multi-carousel';
+const responsive = {
+    superLargeDesktop: {
+        breakpoint: { max: 4000, min: 3000 }, items: 5
+    },
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 }, items: 4
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 550 }, items: 2
+    },
+    mobile: {
+        breakpoint: { max: 500, min: 0 }, items: 1
+    }
+};
 
 class MedicalFacility extends Component {
     constructor(props) {
@@ -29,6 +43,7 @@ class MedicalFacility extends Component {
 
     render() {
         let { dataClinics } = this.state
+        console.log('check prop', this.props)
         return (
             <>
                 <div className='section-share section-medical-facility'>
@@ -38,7 +53,8 @@ class MedicalFacility extends Component {
                             <button className='btn-section'><FormattedMessage id={"homepage.see-more"} /></button>
                         </div>
                         <div className='section-body'>
-                            <Slider {...this.props.settings}>
+
+                            <Carousel responsive={responsive}>
                                 {
                                     dataClinics && dataClinics.length > 0 &&
                                     dataClinics.map((item, index) => {
@@ -57,7 +73,7 @@ class MedicalFacility extends Component {
                                         )
                                     })
                                 }
-                            </Slider>
+                            </Carousel>
                         </div>
                     </div>
                 </div>

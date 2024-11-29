@@ -23,11 +23,10 @@ class MenuGroup extends Component {
 }
 
 class Menu extends Component {
-
     render() {
-        const { name, active, link, children, onClick, hasSubMenu, onLinkClick } = this.props;
+        const { name, active, link, children, onClick, hasSubMenu, onMenuItemClick } = this.props;
         return (
-            <li className={"menu" + (hasSubMenu ? " has-sub-menu" : "") + ("") + (active ? " active" : "")}>
+            <li className={"menu" + (hasSubMenu ? " has-sub-menu" : "") + (active ? " active" : "")}>
                 {hasSubMenu ? (
                     <Fragment>
                         <span
@@ -48,10 +47,10 @@ class Menu extends Component {
                         </div>
                     </Fragment>
                 ) : (
-                        <Link to={link} className="menu-link" onClick={onLinkClick}>
-                            <FormattedMessage id={name} />
-                        </Link>
-                    )}
+                    <Link to={link} className="menu-link" onClick={onMenuItemClick}>
+                        <FormattedMessage id={name} />
+                    </Link>
+                )}
             </li>
         );
     }
@@ -134,58 +133,8 @@ class Navigator extends Component {
         return false;
     };
 
-    checkActiveMenu = () => {
-        const { menus, location } = this.props;
-        outerLoop:
-        for (let i = 0; i < menus.length; i++) {
-            const group = menus[i];
-            if (group.menus && group.menus.length > 0) {
-                for (let j = 0; j < group.menus.length; j++) {
-                    const menu = group.menus[j];
-                    if (menu.subMenus && menu.subMenus.length > 0) {
-                        if (this.isMenuHasSubMenuActive(location, menu.subMenus, null)) {
-                            const key = i + '_' + j;
-                            this.setState({
-                                expandedMenu: {
-                                    [key]: true
-                                }
-                            });
-                            break outerLoop;
-                        }
-                    }
-                }
-            }
-        }
-    };
-
-    componentDidMount() {
-        this.checkActiveMenu();
-    };
-
-    // componentWillReceiveProps(nextProps, prevState) {
-    //     const { location, setAccountMenuPath, setSettingMenuPath } = this.props;
-    //     const { location: nextLocation } = nextProps;
-    //     if (location !== nextLocation) {
-    //         let pathname = nextLocation && nextLocation.pathname;
-    //         if ((pathname.startsWith('/account/') || pathname.startsWith('/fds/account/'))) {
-    //             setAccountMenuPath(pathname);
-    //         }
-    //         if (pathname.startsWith('/settings/')) {
-    //             setSettingMenuPath(pathname);
-    //         };
-    //     };
-    // };
-
-    componentDidUpdate(prevProps, prevState) {
-        const { location } = this.props;
-        const { location: prevLocation } = prevProps;
-        if (location !== prevLocation) {
-            this.checkActiveMenu();
-        };
-    };
-
     render() {
-        const { menus, location, onLinkClick } = this.props;
+        const { menus, location, onMenuItemClick } = this.props;
         return (
             <Fragment>
                 <ul className="navigator-menu list-unstyled">
@@ -207,15 +156,14 @@ class Navigator extends Component {
                                                         hasSubMenu={menu.subMenus}
                                                         isOpen={isSubMenuOpen}
                                                         onClick={() => this.toggle(groupIndex, menuIndex)}
-                                                        onLinkClick={onLinkClick}
+                                                        onMenuItemClick={onMenuItemClick} // Sử dụng onMenuItemClick ở đây
                                                     >
                                                         {menu.subMenus && menu.subMenus.map((subMenu, subMenuIndex) => (
                                                             <SubMenuWithRouter
                                                                 key={subMenuIndex}
                                                                 name={subMenu.name}
                                                                 link={subMenu.link}
-                                                                onClick={this.closeOtherExpand}
-                                                                onLinkClick={onLinkClick}
+                                                                onMenuItemClick={onMenuItemClick} // Thêm onMenuItemClick cho SubMenu
                                                             />
                                                         ))}
                                                     </MenuWithRouter>

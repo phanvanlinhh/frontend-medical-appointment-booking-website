@@ -1,9 +1,10 @@
 @import "../styles/common.scss";
 
 .navigator-menu {
-    display: flex;
-    margin : 0;
-    padding: 0;
+    display : flex;
+    margin  : 0;
+    padding : 0;
+    position: relative;
 
     &.list-unstyled,
     .list-unstyled {
@@ -11,9 +12,12 @@
     }
 
     .menu-group {
+        position: relative; // Cần có để submenu có thể được hiển thị ở vị trí tuyệt đối
+
         &:hover {
             cursor          : pointer;
-            background-color: darken($colormain, 5);
+            background-color: #009dff;
+            color           : #ffff;
         }
 
         .menu-group-name {
@@ -33,7 +37,12 @@
             -webkit-box-shadow: 2px 2px 4px 0 $box-shadow-color;
             color             : $text-in-light;
             position          : absolute;
+            top               : 0;
+            left              : 100%; // Đảm bảo submenu hiển thị bên phải menu chính
+            width             : max-content; // Kích thước của submenu
             padding           : 0;
+            z-index           : 2000; // Đảm bảo submenu không bị che bởi các phần tử khác
+
 
             .menu {
                 width         : 100%;
@@ -43,12 +52,12 @@
                 text-transform: none;
 
                 &.active {
+                    background-color: rgb(231, 231, 231);
+
                     a {
                         color      : orange;
                         font-weight: 600;
                     }
-
-                    background-color: rgb(231, 231, 231);
                 }
 
                 .menu-link {
@@ -57,14 +66,13 @@
                 }
 
                 .sub-menu-list {
-                    display           : none;
-                    background-color  : $bg-menu-color;
-                    box-shadow        : 2px 2px 4px 0 $box-shadow-color;
-                    -webkit-box-shadow: 2px 2px 4px 0 $box-shadow-color;
-                    position          : absolute;
-                    top               : 0;
-                    left              : 205px;
-                    padding           : 0;
+                    display         : none;
+                    background-color: $bg-menu-color;
+                    box-shadow      : 2px 2px 4px 0 $box-shadow-color;
+                    position        : absolute;
+                    top             : 0;
+                    left            : 100%;
+                    padding         : 0;
 
                     .sub-menu {
                         padding    : 0 15px;
@@ -92,11 +100,6 @@
                     }
                 }
 
-                &.active span {
-                    font-weight: 500;
-                    color      : $colormain;
-                }
-
                 &:hover {
                     background-color: #74f0fc;
 
@@ -114,10 +117,8 @@
             }
         }
 
-        &:hover {
-            .menu-list {
-                display: block;
-            }
+        &:hover .menu-list {
+            display: block; // Hiển thị menu con khi hover
         }
     }
 }
