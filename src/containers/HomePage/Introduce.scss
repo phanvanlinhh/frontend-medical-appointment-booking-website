@@ -1,0 +1,276 @@
+.introduction {
+    padding         : 20px 200px;
+    background-color: #f0f9ff;
+
+    .intro-container {
+        display        : flex;
+        flex-wrap      : wrap;
+        align-items    : center;
+        justify-content: space-between;
+
+        .intro-text {
+            max-width: 50%;
+            flex     : 1 1 500px;
+
+            h1 {
+                font-size     : 39px;
+                font-weight   : 700;
+                line-height   : 48px;
+                letter-spacing: 0;
+                text-align    : left;
+                color         : #00b5f1;
+                margin-bottom : 8px;
+            }
+
+            p {
+                font-size     : 1rem;
+                color         : #555;
+                font-size     : 16px;
+                font-weight   : 300;
+                line-height   : 19px;
+                letter-spacing: 0;
+                text-align    : left;
+                margin-bottom : 40px;
+            }
+
+            .features {
+                display              : grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap                  : 15px;
+
+                .feature {
+                    display      : flex;
+                    align-items  : flex-start;
+                    width        : 100%;
+                    height       : auto;
+                    padding      : 8px 18px;
+                    border-radius: 16px;
+                    gap          : 12px;
+                    background   : #ffffff;
+                    display      : flex;
+                    text-align   : center;
+
+                    span {
+                        font-size     : 60px;
+                        font-weight   : 700;
+                        line-height   : 78px;
+                        letter-spacing: 0;
+                        text-align    : center;
+                        color         : #ffb54a;
+                    }
+
+                    strong {
+                        color         : #00b5f1;
+                        padding-bottom: 4px;
+                    }
+
+                    p {
+                        color          : #333;
+                        margin         : 0;
+                        font-weight    : 500 !important;
+                        text-align     : left;
+                        display        : grid;
+                        align-content  : center;
+                        justify-content: center;
+                        margin         : auto 0;
+                        font-size      : 18px;
+                        font-style     : normal;
+                        font-weight    : 500;
+                        line-height    : normal;
+                    }
+                }
+            }
+        }
+
+        .intro-image {
+            max-width: 40%;
+            flex     : 1 1 300px;
+
+            img {
+                width        : 100%;
+                height       : auto;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .contact {
+        .background {
+            border-radius: 20px;
+        }
+
+        .social-media {
+            position   : relative;
+            display    : flex;
+            align-items: center;
+            gap        : 25px;
+            max-width  : 100%;
+
+            .zalo {
+                background    : #fff;
+                padding       : 14px 12px;
+                border-radius : 10px;
+                text-align    : center;
+                min-width     : 80px;
+                min-height    : 80px;
+                margin-top    : 40px;
+                margin-left   : 50px;
+                display       : flex;
+                flex-direction: column;
+
+
+                img {
+                    width: 130px;
+                }
+
+                span {
+                    margin-top: 5px;
+                    font-size : 16px;
+                }
+            }
+
+            .facebook {
+                background    : #fff;
+                padding       : 14px 12px;
+                border-radius : 10px;
+                text-align    : center;
+                min-width     : 80px;
+                min-height    : 80px;
+                margin-top    : 40px;
+                display       : flex;
+                flex-direction: column;
+
+                img {
+                    width: 130px;
+                }
+
+                span {
+                    margin-top: 5px;
+                    font-size : 16px;
+                }
+            }
+        }
+    }
+
+    // Responsive
+    @media (max-width: 1024px) {
+        padding: 20px;
+
+        .intro-container {
+            .intro-text {
+                h1 {
+                    font-size: 32px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+
+                .features {
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 10px;
+
+        .intro-container {
+            flex-direction: column;
+
+            .intro-text,
+            .intro-image {
+                max-width : 100%;
+                flex      : unset;
+                text-align: center;
+            }
+
+            .intro-text {
+                h1 {
+                    font-size : 28px;
+                    text-align: center;
+                }
+
+                p {
+                    text-align: center;
+                }
+
+                .features {
+                    gap      : 15px;
+                    display  : flex;
+                    flex-wrap: wrap;
+                    padding  : 10px;
+
+                    .feature {
+                        flex-direction: column;
+                        align-items   : center;
+                        flex          : 1 1 calc(50% - 20px);
+
+                        span {
+                            font-size: 40px;
+                        }
+
+                        p {
+                            font-size : 16px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            .intro-image img {
+                width : 80%;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        .intro-container {
+            .intro-text {
+                h1 {
+                    font-size: 24px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+
+                .features {
+                    gap: 8px;
+
+                    .feature {
+                        span {
+                            font-size: 36px;
+                        }
+
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+
+            .contact {
+                .social-media {
+                    flex-direction: column;
+                    align-items   : center;
+
+                    .zalo,
+                    .facebook {
+                        margin: 10px 0;
+
+                        img {
+                            width: 100px;
+                        }
+
+                        span {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

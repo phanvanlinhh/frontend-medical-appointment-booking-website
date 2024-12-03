@@ -6,6 +6,7 @@ import MedicalFacility from './Section/MedicalFacility'
 import OutstandingDoctor from './Section/OutstandingDoctor';
 import Handbook from './Section/Handbook';
 import HomeFooter from './HomeFooter';
+import Introduce from './Introduce';
 import './HomePage.scss'
 import "react-multi-carousel/lib/styles.css";
 
@@ -33,6 +34,7 @@ class HomePage extends Component {
                 <MedicalFacility />
                 <OutstandingDoctor responsive={responsive} />
                 <Handbook responsive={responsive} />
+                <Introduce />
                 <HomeFooter />
             </div>
         )
